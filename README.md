@@ -2,14 +2,14 @@
 
 FastAPI app. Python 3.12+, [uv](https://docs.astral.sh/uv/) for deps.
 
-**Setup**
+## Setup
 
 ```bash
 uv sync
 cp .env.example .env
 ```
 
-**Run**
+## Running Locally
 
 ```bash
 uv run uvicorn app.main:app --reload
@@ -17,7 +17,36 @@ uv run uvicorn app.main:app --reload
 
 API at http://127.0.0.1:8000 — docs at `/api/v1/docs`.
 
-**Other**
+## Docker
 
-- Tests: `uv run pytest`
-- Lint: `uv run pylint app`
+**Build & run:**
+
+```bash
+docker build -t fastapi-app . && docker run -p 8000:8000 fastapi-app
+```
+
+**Dev mode (with hot-reload via docker-compose):**
+
+```bash
+docker compose up --build
+```
+
+## Linting & Formatting
+
+```bash
+make lint        # Run ruff linter
+make format      # Auto-format code + fix lint issues
+make check       # CI-friendly check (no auto-fix)
+```
+
+## Tests
+
+```bash
+make test        # or: uv run pytest
+```
+
+## All Make Commands
+
+```bash
+make help        # Show all available commands
+```
