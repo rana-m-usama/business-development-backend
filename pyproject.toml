@@ -1,0 +1,43 @@
+[project]
+name = "business-development-backend"
+version = "0.1.0"
+description = "Business Development Backend API"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.129.2",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.13.1",
+    "python-dotenv>=1.2.1",
+    "uvicorn[standard]>=0.41.0",
+]
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pylint>=4.0.5",
+    "pytest>=9.0.2",
+    "pytest-asyncio>=1.3.0",
+]
+
+[tool.pylint.main]
+load-plugins = ["pylint.extensions.no_self_use"]
+ignore = [".venv", "__pycache__", ".git"]
+
+[tool.pylint."messages control"]
+disable = [
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "too-few-public-methods",
+    "import-error",
+]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.design]
+max-args = 8
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+pythonpath = ["."]
