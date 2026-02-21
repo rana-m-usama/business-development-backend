@@ -11,7 +11,9 @@ from app.routes import health
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     """Startup and shutdown events for the application."""
+    # TODO: add startup logic (db connections, caches, etc.)
     yield
+    # TODO: add shutdown cleanup here
 
 
 def create_app() -> FastAPI:
@@ -25,6 +27,11 @@ def create_app() -> FastAPI:
         redoc_url=f"{settings.api_prefix}/redoc",
         openapi_url=f"{settings.api_prefix}/openapi.json",
     )
+
+    @application.get("/")
+    async def root() -> dict:
+        """Root endpoint for load balancers and quick sanity checks."""
+        return {"status": "ok"}
 
     application.include_router(
         health.router,

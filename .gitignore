@@ -31,5 +31,6 @@ htmlcov/
 .coverage
 coverage.xml
 
-# Pylint
+# Linting / Formatting
 .pylint.d/
+.ruff_cache/
