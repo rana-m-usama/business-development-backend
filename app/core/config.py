@@ -17,5 +17,8 @@ class Settings(BaseSettings):
     debug: bool = False
     api_prefix: str = "/api/v1"
 
+    supabase_url: str = ""
+    supabase_anon_key: str = ""
+
 
 settings = Settings()

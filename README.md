@@ -9,6 +9,9 @@ uv sync
 cp .env.example .env
 ```
 
+Edit `.env` and fill in your **Supabase** credentials (`SUPABASE_URL`, `SUPABASE_ANON_KEY`).
+Get them from [Supabase Dashboard → Project Settings → API](https://supabase.com/dashboard).
+
 ## Running Locally
 
 ```bash
