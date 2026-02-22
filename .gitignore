@@ -34,3 +34,6 @@ coverage.xml
 # Linting / Formatting
 .pylint.d/
 .ruff_cache/
+
+# Supabase local state
+supabase/.temp/

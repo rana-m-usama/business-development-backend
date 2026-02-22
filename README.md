@@ -9,8 +9,28 @@ uv sync
 cp .env.example .env
 ```
 
-Edit `.env` and fill in your **Supabase** credentials (`SUPABASE_URL`, `SUPABASE_ANON_KEY`).
+Edit `.env` and fill in your **Supabase** credentials (`SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`).
 Get them from [Supabase Dashboard → Project Settings → API](https://supabase.com/dashboard).
+
+## Database Migrations
+
+Migration files live in `supabase/migrations/`. To apply them:
+
+** Supabase CLI:**
+
+```bash
+# Install CLI (macOS)
+brew install supabase/tap/supabase
+
+# Login (opens browser to generate an access token)
+supabase login
+
+# Link to your remote project
+supabase link --project-ref <your-project-ref>
+
+# Push migrations
+supabase db push
+```
 
 ## Running Locally
 
