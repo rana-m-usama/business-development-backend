@@ -9,7 +9,6 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
-        case_sensitive=False,
     )
 
     app_name: str = "Business Development Backend"
@@ -17,8 +16,9 @@ class Settings(BaseSettings):
     debug: bool = False
     api_prefix: str = "/api/v1"
 
-    supabase_url: str = ""
-    supabase_anon_key: str = ""
+    # Required — no defaults. App won't start without these.
+    supabase_url: str
+    supabase_service_role_key: str
 
 
 settings = Settings()
