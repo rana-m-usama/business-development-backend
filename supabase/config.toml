@@ -1,0 +1,6 @@
+# Supabase local config. Restart with: supabase stop && supabase start
+
+[auth]
+# How long access tokens are valid (seconds). Default 3600 (1 hour), max 604800 (1 week).
+# Increase for easier testing so tokens don't expire as quickly.
+jwt_expiry = 86400

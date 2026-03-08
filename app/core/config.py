@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     # Required — no defaults. App won't start without these.
     supabase_url: str
     supabase_service_role_key: str
+    supabase_jwt_secret: str
 
 
 settings = Settings()
