@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
 from app.core.config import settings
-from app.routes import health
+from app.routes import auth, health
 
 
 @asynccontextmanager
@@ -35,6 +35,10 @@ def create_app() -> FastAPI:
 
     application.include_router(
         health.router,
+        prefix=settings.api_prefix,
+    )
+    application.include_router(
+        auth.router,
         prefix=settings.api_prefix,
     )
 
